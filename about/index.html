@@ -31,14 +31,16 @@
         <span>DaDon</span>
       </div>
 
-      <!-- Hamburger Icon for Mobile -->
-      <div class="menu-toggle" aria-label="Toggle menu">
-        <i class="fas fa-bars"></i>
+      <!-- ✅ Updated Hamburger Icon -->
+      <div class="menu-toggle" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
 
       <ul class="nav-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="../about/">About</a></li>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../about/" class="active">About</a></li>
         <li><a href="../portfolio/">Projects</a></li>
         <li><a href="../blog/">My Blogs</a></li>
         <li><a href="../contact/">Contact</a></li>
@@ -115,7 +117,18 @@
     </div>
   </footer>
 
-  <!-- ===== Scripts ===== -->
+  <!-- ✅ Hamburger Script (Same as Homepage) -->
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      menuToggle.classList.toggle('open');
+    });
+  </script>
+
+  <!-- ===== Main Script ===== -->
   <script src="../assets/js/script.js" defer></script>
 </body>
 </html>

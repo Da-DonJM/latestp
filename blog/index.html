@@ -31,16 +31,18 @@
         <span>DaDon</span>
       </div>
 
-      <!-- Hamburger Icon (for mobile) -->
-      <div class="menu-toggle" aria-label="Toggle navigation">
-        <i class="fas fa-bars"></i>
+      <!-- ✅ Updated Hamburger Icon -->
+      <div class="menu-toggle" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
 
       <ul class="nav-links">
-       <li><a href="/">Home</a></li>
+        <li><a href="../index.html">Home</a></li>
         <li><a href="../about/">About</a></li>
         <li><a href="../portfolio/">Projects</a></li>
-        <li><a href="../blog/">My Blogs</a></li>
+        <li><a href="../blog/" class="active">My Blogs</a></li>
         <li><a href="../contact/">Contact</a></li>
       </ul>
     </nav>
@@ -61,7 +63,7 @@
     </div>
   </section>
 
-  <!-- 🟢 WhatsApp Floating Button (optional) -->
+  <!-- 🟢 WhatsApp Floating Button -->
   <a href="https://wa.me/254758316818" 
      class="whatsapp-float" 
      target="_blank" 
@@ -87,7 +89,18 @@
     </div>
   </footer>
 
-  <!-- ===== Scripts ===== -->
+  <!-- ✅ Hamburger Script -->
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      menuToggle.classList.toggle('open');
+    });
+  </script>
+
+  <!-- ===== Blog Scripts ===== -->
   <script src="../assets/js/script.js" defer></script>
   <script src="../assets/js/blog.js" defer></script>
 </body>

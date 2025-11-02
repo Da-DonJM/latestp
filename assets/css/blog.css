@@ -1,5 +1,5 @@
 /* ==========================================
-   📰 DaDon Blog Page — Standalone Theme CSS
+   📰 DaDon Blog Page — Final Theme (2025)
    ========================================== */
 
 /* ===== Theme Variables ===== */
@@ -32,7 +32,7 @@ body {
 }
 
 /* ==========================================
-   🧭 Navbar
+   🧭 Navbar (Updated for Hamburger + Fade)
    ========================================== */
 header {
   background: var(--secondary);
@@ -72,6 +72,7 @@ header {
   list-style: none;
   display: flex;
   gap: 1.5rem;
+  transition: var(--transition);
 }
 
 .nav-links a {
@@ -87,17 +88,29 @@ header {
   text-shadow: 0 0 6px var(--accent);
 }
 
-/* Mobile Navbar */
+/* ===== Hamburger Button ===== */
 .menu-toggle {
   display: none;
-  font-size: 1.6rem;
-  color: var(--accent);
+  flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 20px;
   cursor: pointer;
+  transition: var(--transition);
 }
 
+.menu-toggle span {
+  width: 100%;
+  height: 3px;
+  background-color: var(--accent);
+  border-radius: 3px;
+  transition: var(--transition);
+}
+
+/* ===== Mobile Navbar ===== */
 @media (max-width: 768px) {
   .menu-toggle {
-    display: block;
+    display: flex;
   }
 
   .nav-links {
@@ -110,14 +123,32 @@ header {
     text-align: center;
     padding: 1rem 0;
     display: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
   }
 
   .nav-links.active {
     display: flex;
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .nav-links li {
     margin: 1rem 0;
+  }
+
+  /* Animate hamburger to X */
+  .menu-toggle.open span:nth-child(1) {
+    transform: rotate(45deg) translateY(8px);
+  }
+
+  .menu-toggle.open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.open span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-8px);
   }
 }
 
