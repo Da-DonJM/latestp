@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- ===== Meta & SEO ===== -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="DaDon - Digital Skills Trainer, Web Developer, and Graphic Designer." />
-  <title>Projects | DaDon</title>
+  <title>DaDon | Digital Skills Trainer & Designer</title>
 
-  <!-- Favicon -->
-  <link rel="icon" href="../assets/images/logo.png" type="image/png" />
+  <!-- ===== Favicon ===== -->
+  <link rel="icon" href="assets/images/logo.png" type="image/png" />
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <!-- ===== CSS ===== -->
+  <link rel="stylesheet" href="assets/css/styles.css" />
 
-  <!-- Font Awesome -->
+  <!-- ===== Font Awesome ===== -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     crossorigin="anonymous"
+    referrerpolicy="no-referrer"
   />
 </head>
 
@@ -25,66 +27,66 @@
   <header>
     <nav class="navbar">
       <div class="logo">
-        <img src="../assets/images/logo.png" alt="DaDon Logo" />
+        <img src="assets/images/logo.png" alt="DaDon Logo" />
         <span>DaDon</span>
       </div>
 
-      <!-- ✅ Updated Hamburger Icon -->
-      <div class="menu-toggle" id="menu-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
+      <!-- ✅ Hamburger Icon -->
+      <div class="menu-toggle" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
       </div>
 
-      <!-- Nav Links -->
       <ul class="nav-links">
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="../about/">About</a></li>
-        <li><a href="../portfolio/" class="active">Projects</a></li>
-        <li><a href="../blog/">My Blogs</a></li>
-        <li><a href="../contact/">Contact</a></li>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about/">About</a></li>
+        <li><a href="portfolio/">Projects</a></li>
+        <li><a href="blog/">My Blogs</a></li>
+        <li><a href="contact/">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- 💼 Portfolio Section -->
-  <section class="portfolio" id="portfolio">
-    <h1>My Projects</h1>
-    <p>Explore a selection of my recent works — from web design and data analytics dashboards to creative visual projects.</p>
-
-    <div class="portfolio-grid">
-      <div class="portfolio-item">
-        <img src="../assets/images/project1.jpg" alt="Project 1" loading="lazy" />
-        <div class="overlay">
-          <h3>Website Redesign</h3>
-          <p>Modern responsive web design for a small business.</p>
-        </div>
+  <!-- 🦸 Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-container">
+      <div class="hero-content">
+        <h1>Hi, I’m <span>Johnson Murimi</span></h1>
+        <h2>
+          Digital Skills Trainer • Online Tutor • Data Analyst • 
+          Cyber Security Enthusiast • Digital Marketer • Web Developer • Graphic Designer
+        </h2>
+        <p>
+          I empower individuals and businesses through digital skills, creative design,
+          and modern web solutions. Let’s build something impactful together.
+        </p>
+        <a href="portfolio/" class="btn">View My Work</a>
       </div>
 
-      <div class="portfolio-item">
-        <img src="../assets/images/project2.jpg" alt="Project 2" loading="lazy" />
-        <div class="overlay">
-          <h3>Data Analytics Dashboard</h3>
-          <p>Interactive Excel-based dashboard for insights and decision-making.</p>
-        </div>
-      </div>
-
-      <div class="portfolio-item">
-        <img src="../assets/images/project3.jpg" alt="Project 3" loading="lazy" />
-        <div class="overlay">
-          <h3>Digital Campaign</h3>
-          <p>Social media and email marketing strategy for brand awareness.</p>
-        </div>
+      <div class="hero-image">
+        <img src="assets/images/profile.jpg" alt="Johnson Murimi" loading="lazy" />
       </div>
     </div>
   </section>
 
-  <!-- 🟢 Floating WhatsApp Button -->
-  <a 
-    href="https://wa.me/254758316818?text=Hello%20DaDon%2C%20let's%20connect!" 
-    class="whatsapp-float" 
-    target="_blank" 
-    aria-label="Chat on WhatsApp">
+  <!-- 📰 Blog Preview Section -->
+  <section class="blog-section" id="blog">
+    <h1>Latest from My Blog</h1>
+    <p>Insights, tutorials, and stories from my digital journey.</p>
+
+    <div id="blog-grid" class="blog-grid">
+      <p>Loading latest posts...</p>
+    </div>
+
+    <div class="blog-btn-container">
+      <a href="blog/" class="btn">See All Blogs</a>
+    </div>
+  </section>
+
+  <!-- 🟢 WhatsApp Floating Button -->
+  <a href="https://wa.me/254758316818" 
+     class="whatsapp-float" 
+     target="_blank" 
+     aria-label="Chat with DaDon on WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
 
@@ -109,18 +111,8 @@
     </div>
   </footer>
 
-  <!-- ✅ Hamburger Script -->
-  <script>
-    const menuToggle = document.getElementById('menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-
-    menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-      menuToggle.classList.toggle('open');
-    });
-  </script>
-
-  <!-- Main Script -->
-  <script src="../assets/js/script.js" defer></script>
+  <!-- ===== Scripts ===== -->
+  <script src="assets/js/script.js" defer></script>
+  <script src="assets/js/nav.js" defer></script>
 </body>
 </html>

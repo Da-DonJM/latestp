@@ -31,11 +31,9 @@
         <span>DaDon</span>
       </div>
 
-      <!-- ✅ Updated Hamburger Icon -->
-      <div class="menu-toggle" id="menu-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
+      <!-- ✅ Mobile Hamburger -->
+      <div class="menu-toggle" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
       </div>
 
       <ul class="nav-links">
@@ -60,6 +58,7 @@
         </p>
 
         <form action="https://formsubmit.co/murimijohnson254@gmail.com" method="POST" class="contact-form">
+          <!-- Hidden formsubmit settings -->
           <input type="hidden" name="_captcha" value="false" />
           <input type="hidden" name="_next" value="https://yourwebsite.com/thankyou.html" />
 
@@ -84,7 +83,7 @@
       <!-- 📇 Right: Contact Info -->
       <div class="contact-right">
         <h2>Contact Details</h2>
-        <p>Alternatively, you can reach me directly via:</p>
+        <p>You can also reach me directly via the channels below:</p>
 
         <div class="contact-info">
           <a href="mailto:murimijohnson254@gmail.com" class="contact-item">
@@ -97,7 +96,7 @@
             <span>+254 758 316 818</span>
           </a>
 
-          <a href="https://wa.me/254758316818?text=Hello%20DaDon%2C%20I%27m%20interested%20in%20working%20with%20you!"
+          <a href="https://wa.me/254758316818?text=Hello%20DaDon%2C%20I%27m%20interested%20in%20working%20with%20you!" 
              target="_blank" class="contact-item">
             <i class="fab fa-whatsapp"></i>
             <span>WhatsApp Chat</span>
@@ -117,7 +116,7 @@
     </div>
   </section>
 
-  <!-- 🟢 Floating WhatsApp Button -->
+  <!-- 🟢 WhatsApp Floating Button -->
   <a 
     href="https://wa.me/254758316818?text=Hello%20DaDon%2C%20let's%20connect!" 
     class="whatsapp-float" 
@@ -139,18 +138,8 @@
     </div>
   </footer>
 
-  <!-- ✅ Hamburger Script -->
-  <script>
-    const menuToggle = document.getElementById('menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-
-    menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-      menuToggle.classList.toggle('open');
-    });
-  </script>
-
   <!-- ===== Scripts ===== -->
   <script src="../assets/js/script.js" defer></script>
+  <script src="../assets/js/nav.js" defer></script>
 </body>
 </html>

@@ -1,6 +1,8 @@
-// Lightbox Script by DaDon
+/* ==========================================
+   💡 Lightbox Script — by DaDon (2025)
+   ========================================== */
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = document.getElementById("lightbox-img");
   const captionText = document.getElementById("caption");
@@ -9,47 +11,56 @@ document.addEventListener("DOMContentLoaded", function() {
   const portfolioImages = document.querySelectorAll(".portfolio-item img");
   let currentIndex = 0;
 
-  // Show image in lightbox
+  if (!lightbox || !lightboxImg || !closeBtn) return; // Prevent errors if missing
+
+  /* ========== 🖼️ Show Lightbox Image ========== */
   portfolioImages.forEach((img, index) => {
     img.addEventListener("click", () => {
       lightbox.style.display = "flex";
       lightboxImg.src = img.src;
       captionText.innerHTML = img.alt || "Portfolio Image";
       currentIndex = index;
+      document.body.style.overflow = "hidden"; // Disable background scroll
     });
   });
 
-  // Close lightbox
+  /* ========== ❌ Close Lightbox ========== */
   closeBtn.addEventListener("click", () => {
-    lightbox.style.display = "none";
+    closeLightbox();
   });
 
-  // Close when clicking outside the image
   lightbox.addEventListener("click", (e) => {
-    if (e.target === lightbox) {
-      lightbox.style.display = "none";
-    }
+    if (e.target === lightbox) closeLightbox();
   });
 
-  // Navigate with keyboard arrows
+  function closeLightbox() {
+    lightbox.style.display = "none";
+    document.body.style.overflow = ""; // Re-enable scroll
+  }
+
+  /* ========== ⌨️ Keyboard Navigation ========== */
   document.addEventListener("keydown", (e) => {
     if (lightbox.style.display === "flex") {
       if (e.key === "ArrowRight") showNext();
       if (e.key === "ArrowLeft") showPrev();
-      if (e.key === "Escape") lightbox.style.display = "none";
+      if (e.key === "Escape") closeLightbox();
     }
   });
 
-  // Next and previous functions
+  /* ========== ▶️ Next / ◀️ Previous Image ========== */
   function showNext() {
     currentIndex = (currentIndex + 1) % portfolioImages.length;
-    lightboxImg.src = portfolioImages[currentIndex].src;
-    captionText.innerHTML = portfolioImages[currentIndex].alt;
+    updateLightboxImage();
   }
 
   function showPrev() {
     currentIndex = (currentIndex - 1 + portfolioImages.length) % portfolioImages.length;
-    lightboxImg.src = portfolioImages[currentIndex].src;
-    captionText.innerHTML = portfolioImages[currentIndex].alt;
+    updateLightboxImage();
+  }
+
+  function updateLightboxImage() {
+    const img = portfolioImages[currentIndex];
+    lightboxImg.src = img.src;
+    captionText.innerHTML = img.alt || "Portfolio Image";
   }
 });

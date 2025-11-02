@@ -1,5 +1,5 @@
 /* ==========================================
-   📰 DaDon Blog Page — Final Theme (2025)
+   📰 DaDon Blog Page — blog.css (2025)
    ========================================== */
 
 /* ===== Theme Variables ===== */
@@ -15,7 +15,7 @@
   --transition: all 0.3s ease;
 }
 
-/* ===== Base Reset ===== */
+/* ===== Reset & Base ===== */
 * {
   margin: 0;
   padding: 0;
@@ -32,7 +32,7 @@ body {
 }
 
 /* ==========================================
-   🧭 Navbar (Updated for Hamburger + Fade)
+   🧭 Navbar
    ========================================== */
 header {
   background: var(--secondary);
@@ -72,7 +72,6 @@ header {
   list-style: none;
   display: flex;
   gap: 1.5rem;
-  transition: var(--transition);
 }
 
 .nav-links a {
@@ -88,29 +87,18 @@ header {
   text-shadow: 0 0 6px var(--accent);
 }
 
-/* ===== Hamburger Button ===== */
+/* ===== Hamburger ===== */
 .menu-toggle {
   display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 26px;
-  height: 20px;
+  font-size: 1.6rem;
+  color: var(--accent);
   cursor: pointer;
-  transition: var(--transition);
-}
-
-.menu-toggle span {
-  width: 100%;
-  height: 3px;
-  background-color: var(--accent);
-  border-radius: 3px;
-  transition: var(--transition);
 }
 
 /* ===== Mobile Navbar ===== */
 @media (max-width: 768px) {
   .menu-toggle {
-    display: flex;
+    display: block;
   }
 
   .nav-links {
@@ -123,37 +111,19 @@ header {
     text-align: center;
     padding: 1rem 0;
     display: none;
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
   }
 
   .nav-links.active {
     display: flex;
-    opacity: 1;
-    transform: translateY(0);
   }
 
   .nav-links li {
     margin: 1rem 0;
   }
-
-  /* Animate hamburger to X */
-  .menu-toggle.open span:nth-child(1) {
-    transform: rotate(45deg) translateY(8px);
-  }
-
-  .menu-toggle.open span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .menu-toggle.open span:nth-child(3) {
-    transform: rotate(-45deg) translateY(-8px);
-  }
 }
 
 /* ==========================================
-   📰 Blog Section — 3 Column Responsive Layout
+   📰 Blog Section
    ========================================== */
 .blog-section {
   text-align: center;
@@ -175,7 +145,7 @@ header {
 }
 
 /* ===== Blog Grid ===== */
-#blog-container {
+.blog-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
@@ -192,14 +162,9 @@ header {
   box-shadow: 0 4px 12px var(--shadow);
   transition: var(--transition);
   max-width: 360px;
-  height: 100%;
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 0.6s ease forwards;
-}
-
-.blog-card:nth-child(n) {
-  animation-delay: calc(0.1s * var(--i, 1));
 }
 
 .blog-card:hover {
@@ -207,7 +172,7 @@ header {
   box-shadow: 0 8px 20px var(--shadow);
 }
 
-/* ===== Image ===== */
+/* ===== Blog Image ===== */
 .blog-card img {
   width: 100%;
   height: 220px;
@@ -221,32 +186,23 @@ header {
 }
 
 /* ===== Blog Content ===== */
-.blog-content {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 1.4rem 1.2rem;
-  text-align: left;
-}
-
-.blog-content h3 {
+.blog-card h3 {
   color: var(--accent);
   font-size: 1.2rem;
-  margin-bottom: 0.8rem;
+  margin: 1rem 1rem 0.5rem;
 }
 
-.blog-content p {
+.blog-card p {
   color: var(--text-light);
   font-size: 0.95rem;
-  margin-bottom: 1rem;
-  flex-grow: 1;
+  margin: 0 1rem 1.2rem;
   line-height: 1.6;
 }
 
-/* ===== Read More Button ===== */
-.blog-content .btn {
+/* ===== Button in Blog Card ===== */
+.blog-card .btn {
   align-self: flex-start;
+  margin: 0 1rem 1.2rem;
   padding: 0.6rem 1.2rem;
   font-size: 0.9rem;
   border-radius: 8px;
@@ -257,7 +213,7 @@ header {
   transition: var(--transition);
 }
 
-.blog-content .btn:hover {
+.blog-card .btn:hover {
   background: var(--text-dark);
   color: var(--white);
 }
@@ -322,16 +278,16 @@ footer {
 }
 
 /* ==========================================
-   📱 Responsive
+   📱 Responsive Adjustments
    ========================================== */
 @media (max-width: 992px) {
-  #blog-container {
+  .blog-grid {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
 }
 
 @media (max-width: 600px) {
-  #blog-container {
+  .blog-grid {
     grid-template-columns: 1fr;
   }
 
@@ -349,13 +305,25 @@ footer {
 /* ==========================================
    🎞️ Animations
    ========================================== */
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-  70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+@keyframes fadeInUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
-@keyframes fadeInUp {
-  from { transform: translateY(30px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
 }

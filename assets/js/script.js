@@ -5,7 +5,7 @@
 /* ========== 🌐 BLOGGER FEED ========== */
 function loadBloggerFeed(json) {
   const blogGrid = document.getElementById("blog-grid");
-  if (!blogGrid) return; // Stop if not on homepage or blog page
+  if (!blogGrid) return; // Skip if not on homepage or blog page
 
   blogGrid.innerHTML = "";
   const posts = json.feed?.entry || [];
@@ -37,7 +37,7 @@ function loadBloggerFeed(json) {
   });
 }
 
-// Dynamically load Blogger JSON feed
+// Load Blogger JSON feed dynamically
 (function loadBloggerScript() {
   const script = document.createElement("script");
   script.src =
@@ -45,23 +45,8 @@ function loadBloggerFeed(json) {
   document.body.appendChild(script);
 })();
 
-/* ========== 📱 MOBILE NAV TOGGLE ========== */
+/* ========== 🔗 ACTIVE NAV LINK ========== */
 document.addEventListener("DOMContentLoaded", () => {
-  const navbar = document.querySelector(".navbar");
-  const menuToggle = document.querySelector(".menu-toggle");
-
-  if (menuToggle) {
-    menuToggle.addEventListener("click", () => {
-      navbar.classList.toggle("active");
-
-      // Toggle between hamburger and close icon
-      menuToggle.innerHTML = navbar.classList.contains("active")
-        ? '<i class="fas fa-times"></i>'
-        : '<i class="fas fa-bars"></i>';
-    });
-  }
-
-  /* ========== 🔗 ACTIVE NAV LINK ========== */
   const currentPage = window.location.pathname.split("/").pop();
   const navLinks = document.querySelectorAll(".nav-links a");
 
@@ -74,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  /* ========== 🆙 SCROLL TO TOP BUTTON (Optional) ========== */
+  /* ========== 🆙 SCROLL TO TOP BUTTON ========== */
   const scrollBtn = document.createElement("div");
   scrollBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
   scrollBtn.className = "scroll-top";
@@ -108,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Scroll to top when clicked
+  // Smooth scroll to top
   scrollBtn.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
